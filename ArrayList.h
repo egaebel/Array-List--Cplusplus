@@ -541,7 +541,7 @@ class ArrayList {
 
             int index = binarySearch(element);
 
-            if (array[index] == element) {
+            if (index >= 0) {
 
                 remove(index);
 
