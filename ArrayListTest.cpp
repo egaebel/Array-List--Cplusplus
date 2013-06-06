@@ -44,11 +44,11 @@ int main(void) {
     cout << myList.toString() << endl;
 
     cout << "Getting element at 0\n";
-    cout << "The element at 0 is: " << myList.get(0) << endl << endl;
+    cout << "The element at 0 is: " << *myList.get(0) << endl << endl;
 
     cout << "Getting element at " << myList.getSize() - 1 << endl;
     cout << "The element at " << myList.getSize() - 1
-            << " is: " << myList.get(myList.getSize() - 1) << endl << endl;
+            << " is: " << *myList.get(myList.getSize() - 1) << endl << endl;
 
     cout << "Removing index 22 (out of bounds)\n";
     myList.remove(22);
@@ -56,8 +56,8 @@ int main(void) {
     cout << myList.toString() << endl;
 
     cout << "Removing index 0\n";
-    int removed = myList.remove(0);
-    cout << "Removed " << removed << endl;
+    const int * removed = myList.remove(0);
+    cout << "Removed " << *removed << endl;
     cout << "The size of the list is: " << myList.getSize() << endl;
     cout << myList.toString() << endl;
 
@@ -103,7 +103,7 @@ int main(void) {
     cout << "Searching for 584\n";
     int bsIndex = myList.binarySearch(584);
     cout << "The index of 584 is: " << bsIndex << endl;
-    cout << "Want proof? " << myList.get(bsIndex) << endl << endl;
+    cout << "Want proof? " << *myList.get(bsIndex) << endl << endl;
 
     cout << "Searching for -999\n";
     bsIndex = myList.binarySearch(-999);
