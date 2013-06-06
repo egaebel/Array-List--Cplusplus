@@ -17,39 +17,7 @@
 template<class T>
 class ArrayList {
 
-    private:
-        //Data fields-------------------//
-        /**
-         * The array that is the basis for this ArrayList.
-         */
-        T * array;
-        /**
-         * The current number of elements in this ArrayList.
-         */
-        int size;
-        /**
-         * The capacity of the array that is backing this.
-         * Will be expanded as needed.
-         */
-        int capacity;
-        /**
-         * Boolean value indicating whether this ArrayList has
-         * been sorted.
-         */
-        bool sorted;
-
-        //~Methods-----------------------//
-        void reallocate(); 
-        void reallocate(int newSize);
-        //~SORTS-----------------------------------
-        const T & choosePivot(int index1, int index2);
-        void quickSort(int index1, int index2);
-        int binarySearch(const T & element, int index1, int index2) const;
-        void insertionSort(int index1, int index2);
-        T * mergeSort(T * array, int theCapacity, int arraySize);
-
     public:
-
         //~Constructors-----------------------------------------------
         ArrayList();
         ArrayList(int theSize);
@@ -83,6 +51,26 @@ class ArrayList {
         int getSize() const;
         int getCapacity() const;
         std::string toString() const;
+        
+    private:
+        //The array that is the basis for this ArrayList.
+        T * array;
+        //The current number of elements in this ArrayList.
+        int size;
+        //The current capacity of the array that is backing this.
+        int capacity;
+        //Boolean value indicating whether this ArrayList has been sorted.
+        bool sorted;
+
+        //~Methods-----------------------//
+        void reallocate(); 
+        void reallocate(int newSize);
+        //~SORTS-----------------------------------
+        const T & choosePivot(int index1, int index2);
+        void quickSort(int index1, int index2);
+        int binarySearch(const T & element, int index1, int index2) const;
+        void insertionSort(int index1, int index2);
+        T * mergeSort(T * array, int theCapacity, int arraySize);
 };
 
 //~Class Initialization/Destruction/Resetting Functions---------------------
